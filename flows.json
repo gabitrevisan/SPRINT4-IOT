@@ -1,0 +1,442 @@
+[
+    {
+        "id": "e4b579e174c8d6f2",
+        "type": "tab",
+        "label": "Fluxo 1",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "f788c42d657491bb",
+        "type": "ui_gauge",
+        "z": "e4b579e174c8d6f2",
+        "name": "NO²",
+        "group": "81a117f5804f3112",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "NO²",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 80,
+        "wires": []
+    },
+    {
+        "id": "4b158388ea4e86ae",
+        "type": "ui_gauge",
+        "z": "e4b579e174c8d6f2",
+        "name": "SO²",
+        "group": "81a117f5804f3112",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "SO²",
+        "label": "%",
+        "format": "{{value}}",
+        "min": "00",
+        "max": "350",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 20,
+        "wires": []
+    },
+    {
+        "id": "dcd6a77e49885d50",
+        "type": "inject",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "",
+        "payloadType": "date",
+        "x": 200,
+        "y": 160,
+        "wires": [
+            [
+                "2e50318b5990b968"
+            ]
+        ]
+    },
+    {
+        "id": "2e50318b5990b968",
+        "type": "http request",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "method": "GET",
+        "ret": "txt",
+        "paytoqs": "ignore",
+        "url": "http://api.openweathermap.org/data/2.5/air_pollution?lat=-22&lon=-49&appid=0858fd55c076328747d8ea0c2eaa1527",
+        "tls": "",
+        "persist": false,
+        "proxy": "",
+        "insecureHTTPParser": false,
+        "authType": "",
+        "senderr": false,
+        "headers": [],
+        "x": 420,
+        "y": 160,
+        "wires": [
+            [
+                "e8f3ce820a1c6f28"
+            ]
+        ]
+    },
+    {
+        "id": "e8f3ce820a1c6f28",
+        "type": "json",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "property": "payload",
+        "action": "",
+        "pretty": false,
+        "x": 610,
+        "y": 160,
+        "wires": [
+            [
+                "55fa37b774daf681",
+                "6fce0b8a3b6f9102",
+                "4b7fa7a9435fda52",
+                "b39411e5a2341e06",
+                "e27a148925a464fe",
+                "4470247ca54bdf69"
+            ]
+        ]
+    },
+    {
+        "id": "b45abfd5f8bbe225",
+        "type": "ui_gauge",
+        "z": "e4b579e174c8d6f2",
+        "name": "PM10",
+        "group": "c119b964e1dcf612",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PM10",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "200",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 140,
+        "wires": []
+    },
+    {
+        "id": "d1ccd60b5c363b79",
+        "type": "ui_gauge",
+        "z": "e4b579e174c8d6f2",
+        "name": "PM2.5",
+        "group": "81a117f5804f3112",
+        "order": 3,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "PM2.5",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "75",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 200,
+        "wires": []
+    },
+    {
+        "id": "6c45c85ea4cff521",
+        "type": "ui_gauge",
+        "z": "e4b579e174c8d6f2",
+        "name": "O³",
+        "group": "c119b964e1dcf612",
+        "order": 2,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "O³",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "180",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 260,
+        "wires": []
+    },
+    {
+        "id": "49dbf752b53581eb",
+        "type": "ui_gauge",
+        "z": "e4b579e174c8d6f2",
+        "name": "CO",
+        "group": "c119b964e1dcf612",
+        "order": 1,
+        "width": 0,
+        "height": 0,
+        "gtype": "gage",
+        "title": "CO",
+        "label": "%",
+        "format": "{{value}}",
+        "min": 0,
+        "max": "15400",
+        "colors": [
+            "#00b500",
+            "#e6e600",
+            "#ca3838"
+        ],
+        "seg1": "",
+        "seg2": "",
+        "diff": false,
+        "className": "",
+        "x": 950,
+        "y": 320,
+        "wires": []
+    },
+    {
+        "id": "55fa37b774daf681",
+        "type": "change",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list[0].components.so2",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 20,
+        "wires": [
+            [
+                "4b158388ea4e86ae"
+            ]
+        ]
+    },
+    {
+        "id": "6fce0b8a3b6f9102",
+        "type": "change",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list[0].components.no2",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 80,
+        "wires": [
+            [
+                "f788c42d657491bb"
+            ]
+        ]
+    },
+    {
+        "id": "4b7fa7a9435fda52",
+        "type": "change",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list[0].components.pm10",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 140,
+        "wires": [
+            [
+                "b45abfd5f8bbe225"
+            ]
+        ]
+    },
+    {
+        "id": "b39411e5a2341e06",
+        "type": "change",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list[0].components.pm2_5",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 200,
+        "wires": [
+            [
+                "d1ccd60b5c363b79"
+            ]
+        ]
+    },
+    {
+        "id": "e27a148925a464fe",
+        "type": "change",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list[0].components.o3",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 260,
+        "wires": [
+            [
+                "6c45c85ea4cff521"
+            ]
+        ]
+    },
+    {
+        "id": "4470247ca54bdf69",
+        "type": "change",
+        "z": "e4b579e174c8d6f2",
+        "name": "",
+        "rules": [
+            {
+                "t": "set",
+                "p": "payload",
+                "pt": "msg",
+                "to": "payload.list[0].components.co",
+                "tot": "msg"
+            }
+        ],
+        "action": "",
+        "property": "",
+        "from": "",
+        "to": "",
+        "reg": false,
+        "x": 790,
+        "y": 320,
+        "wires": [
+            [
+                "49dbf752b53581eb"
+            ]
+        ]
+    },
+    {
+        "id": "81a117f5804f3112",
+        "type": "ui_group",
+        "name": "Home ",
+        "tab": "17b2146e0d641665",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "c119b964e1dcf612",
+        "type": "ui_group",
+        "name": "Group 2",
+        "tab": "17b2146e0d641665",
+        "order": 2,
+        "disp": true,
+        "width": 6
+    },
+    {
+        "id": "17b2146e0d641665",
+        "type": "ui_tab",
+        "name": "Home ",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
